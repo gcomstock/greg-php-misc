@@ -28,5 +28,5 @@
     ob_end_clean(); // discard trapped output and stop trapping
 
     //now that file is written, redirect to it
-    header('Location: /testtag.html');
+    header('Location: ./testtag.html');
 ?>
