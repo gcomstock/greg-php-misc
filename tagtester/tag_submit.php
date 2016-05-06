@@ -1,32 +1,30 @@
 <?php
-    ob_start(); // start trapping output
-    $tag = @$_POST['tag'];
+  ob_start(); //start trapping output
+  $tag = @$_POST['tag'];
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8">
     <title>ad tag</title>
-    <!--<style>body{margin:0;}</style>-->
-</head>
-<body>
-<?php echo $tag; ?>
-</body>
+  </head>
+  <body>
+    <?php echo $tag; ?>
+  </body>
 </html>
 
-
 <?php
-    $output = ob_get_contents(); // get contents of trapped output
-    //write to file, e.g.
-    $newfile="testtag.html";
-    $file = fopen ($newfile, "w");
-    fwrite($file, $output);
-    fclose ($file);
-    ob_end_clean(); // discard trapped output and stop trapping
+  $output = ob_get_contents(); //get contents of trapped output
 
-    //now that file is written, redirect to it
-    header('Location: ./testtag.html');
+  //write to file
+  $newfile = "testtag.html";
+  $file = fopen ($newfile, "w");
+  fwrite($file, $output);
+
+  fclose ($file);
+  ob_end_clean(); //discard trapped output and stop trapping
+
+  //now that file is written, redirect to it
+  header('Location: ./testtag.html');
 ?>
